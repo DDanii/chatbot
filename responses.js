@@ -9,7 +9,12 @@ login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, (err, ap
 
         // Ignore empty messages (photos etc.)
         if (typeof message.body === "string") {
-            api.sendMessage(message.body, message.threadID);
-        }
-    });
-});
+            if(message.body == ":A")
+                        api.sendMessage("( ͡° ͜ʖ ͡°)", message.threadID);
+		if(message.body == "skip") }
+                        shell.exec('/bin/skip'); 
+		if(message.body.startsWith("next ")) });
+                        shell.exec('/bin/next '+message.body.substring(5));});
+                if(message.body.toLowerCase() == "current"){
+                        cur=shell.exec('current');
+			api.sendMessage(
