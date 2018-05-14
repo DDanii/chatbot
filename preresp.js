@@ -20,10 +20,6 @@ login({appState: JSON.parse(fs.readFileSync('/stuff/lock/appstate.json', 'utf8')
                         cur=shell.exec('current');
 			api.sendMessage(cur.toString() , message.threadID);
 		}
-		if(message.body.startsWith("math") || message.body.startsWith("Math")){
-			cur=shell.exec("math "+ message.body.split(" ")[1]);
-			api.sendMessage(cur.toString() , message.threadID);
-		}
 	}
 });
 });
