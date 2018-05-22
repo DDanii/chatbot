@@ -24,6 +24,13 @@ login({appState: JSON.parse(fs.readFileSync('/stuff/lock/appstate.json', 'utf8')
 			cur=shell.exec("math "+ message.body.split(" ")[1]);
 			api.sendMessage(cur.toString() , message.threadID);
 		}
+		if(message.body.toLowerCase() == "dunno"){
+			api.sendMessage("¯\\_(ツ)_/¯", message.threadID);
+		}
+		if(message.body == "asd.mp4")
+			api.sendMessage({attachment: fs.createReadStream("/stuff/asd.mp4") }, message.threadID);
+		if(message.body == "rip0.mp4")
+                        api.sendMessage({attachment: fs.createReadStream("/stuff/rip0.gif") }, message.threadID);
 	}
-});
+	});
 });
