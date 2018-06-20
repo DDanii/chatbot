@@ -35,6 +35,10 @@ login({appState: JSON.parse(fs.readFileSync('/stuff/lock/appstate.json', 'utf8')
 			api.sendMessage({attachment: fs.createReadStream("/stuff/" + message.body.split(".")[0] + "." + message.body.split(".")[1])}, message.threadID);
 		if(message.body.toLowerCase() == "pubip")
 			api.sendMessage((shell.exec("pubip")).toString(), message.threadID);
+		if(message.body.toLowerCase() == "send nudes"){
+			api.sendTypingIndicator(message.threadID);
+			api.sendMessage({attachment: fs.createReadStream((shell.exec("getp")).toString()) }, message.threadID);
+		}
 	}
 	});
 });
